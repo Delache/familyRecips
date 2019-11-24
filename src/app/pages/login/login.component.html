@@ -1,0 +1,5 @@
+<h1>Qui cuisine aujourd'hui ?</h1>
+<div class='avatar' *ngFor="let user of users">
+  <button (click)= getUser(user)>{{ user.firstname }}</button>
+</div>
+<button (click)= signUp()>Invité</button>
