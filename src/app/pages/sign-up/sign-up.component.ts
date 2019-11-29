@@ -14,13 +14,15 @@ export class SignUpComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute) {
 
-  newUser: User = new User();
+    }
+
+  newUser: User;
   user: User;
 
   ngOnInit() {
-    this.newUser = this.userService.userSession;
+    this.newUser = this.userService.userSession || new User() ;
  }
   onReset(createUser: NgForm) {
     createUser.resetForm();
