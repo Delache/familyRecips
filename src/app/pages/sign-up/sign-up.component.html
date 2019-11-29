@@ -27,11 +27,10 @@
 
 
     <div class="container">
-      <button mat-flat-button (click)="onReset()">Reset</button>
+      <button mat-flat-button (click)="onReset()">Reset</button><br>
+      <button mat-flat-button (click)="onUpdateUser()" *ngIf="newUser">Modifier</button><br>
+      <button mat-flat-button  *ngIf="!newUser">S'inscrire</button><br>
 
-      <button mat-flat-button (click)="onUpdateUser()" *ngIf="newUser.id">Modifier</button>
-
-      <button mat-flat-button  *ngIf="!newUser.id">S'inscrire</button>
     </div>
   </div>
 </form>

@@ -17,21 +17,20 @@ export class SignUpComponent implements OnInit {
     private route: ActivatedRoute) {}
 
   newUser: User = new User();
+  user: User;
 
   ngOnInit() {
-  }
-
+    this.newUser = this.userService.userSession;
+ }
   onReset(createUser: NgForm) {
     createUser.resetForm();
   }
-
-  onFormSubmit(newUser: User) {
-      this.userService.addUser(this.newUser).subscribe(() => {
+  onFormSubmit(user: User) {
+      this.userService.addUser(user).subscribe();
+      this.userService.userSession = this.newUser;
       this.router.navigate(['/user']);
-    });
   }
-
-  onUpdateUser(newUser: User) {
+  onUpdateUser() {
     this.userService.updateUser(this.newUser).subscribe();
     this.router.navigate(['/user']);
   }

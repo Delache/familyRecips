@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { UserService } from './../../shared/services/user.service';
 import { User } from './../../shared/models/user';
 import { Component, OnInit, Input } from '@angular/core';
@@ -11,13 +12,21 @@ import { Component, OnInit, Input } from '@angular/core';
 export class UserComponent implements OnInit {
   user: User;
 
-  constructor( private userService: UserService) { }
+  constructor( private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.user = this.userService.userSession;
   }
   deleteUser(id: number) {
     this.userService.deleteUser(id).subscribe();
-     }
+    this.router.navigate(['/']);
+  }
+  updateUser(user: User) {
+    this.userService.updateUser(user).subscribe();
+    this.router.navigate(['/signUp']);
+  }
+  deconnection() {
+    this.userService.userSession = null;
+    this.router.navigate(['/']);
+  }
 }
-

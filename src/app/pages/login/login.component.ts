@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
                     .subscribe((response) => {
                        this.users = response;
                        });
+    this.userService.userSession = null;
   }
   getUser(data: User) {
     this.userService.userSession = data;

@@ -1,5 +1,8 @@
 <h1>Qui cuisine aujourd'hui ?</h1>
-<div class='avatar' *ngFor="let user of users">
-  <button (click)= getUser(user)>{{ user.firstname }}</button>
+<div class='connectionTab'>
+
+  <div  *ngFor="let user of users">
+    <button class='mat-button accent' (click)= getUser(user)>{{ user.firstname }}</button>
+  </div>
 </div>
-<button (click)= signUp()>Invité</button>
+<button class='nouveau' (click)= signUp()>Nouveau cuisto</button>
