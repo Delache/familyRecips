@@ -1,7 +1,7 @@
 import { Recip } from './../models/recip';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable} from 'rxjs';
+import { Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +27,9 @@ export class RecipService {
   getRecipById(id: number): Observable<any> {
     return this.http.get(this.Url + `/${id}`);
   }
+  searchRecips(term: string): Observable<Recip[]> {
+    if (!term.trim()) {
+      return of([]);
+    }
 }
-
-
-
+}
