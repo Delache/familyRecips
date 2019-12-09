@@ -1,0 +1,4 @@
+<div *ngFor="let currentRecip of recip; let i=index">
+  <app-recip-card [recip]="currentRecip"
+                  [routerLink]="['/recip-details', i]"  ></app-recip-card>
+</div>

@@ -15,7 +15,7 @@ export class UserComponent implements OnInit {
   constructor( private userService: UserService, private router: Router) { }
 
   ngOnInit() {
-    this.user = this.userService.userSession;
+    this.user = JSON.parse(localStorage.getItem('user')) || null;
   }
   deleteUser(id: number) {
     this.userService.deleteUser(id).subscribe();
@@ -28,5 +28,8 @@ export class UserComponent implements OnInit {
   deconnection() {
     this.userService.userSession = null;
     this.router.navigate(['/']);
+  }
+  newRecip() {
+    this.router.navigate(['/newRecip']);
   }
 }

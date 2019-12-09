@@ -1,7 +1,7 @@
 <form #createUser="ngForm" (ngSubmit)="createUser.valid && onFormSubmit(newUser)">
   <div class="example-container boxForm">
 
-    <mat-form-field>
+
       <input matInput placeholder="Prénom" type="text" name="firstname"
       [(ngModel)]="newUser.firstname" #firstnameRef="ngModel" required
       minlength="2" maxlength="100"/>
@@ -11,9 +11,9 @@
         Détaille un peu plus</div>
       <div mat-error *ngIf="firstnameRef?.errors?.maxlength && createUser.submitted">
         C'est trop long (100 caractères maximum) </div>
-    </mat-form-field><br>
 
-    <mat-form-field>
+
+
       <input matInput placeholder="Nom" type="text" name="lastname"
       [(ngModel)]="newUser.lastname" #lastnameRef="ngModel" required
       minlength="2" maxlength="100"/>
@@ -23,7 +23,7 @@
         Détaille un peu plus</div>
       <div mat-error *ngIf="lastnameRef?.errors?.maxlength && createUser.submitted">
         C'est trop long (100 caractères maximum) </div>
-    </mat-form-field>
+
 
 
     <div class="container">

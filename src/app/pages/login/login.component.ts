@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   }
   getUser(data: User) {
     this.userService.userSession = data;
+    localStorage.setItem('user', JSON.stringify(data));
     this.router.navigate(['/user']);
   }
   signUp() {

@@ -9,17 +9,22 @@ import { LoginComponent } from './pages/login/login.component';
 import { UserComponent } from './pages/user/user.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NewRecipComponent } from './pages/new-recip/new-recip.component';
 
-import { MatSliderModule } from '@angular/material/slider';
-import { MatCardModule } from '@angular/material/card';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTabsModule } from '@angular/material/tabs';
-
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatTableModule} from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { RecipListComponent } from './components/recip-list/recip-list.component';
+import { RecipCardComponent } from './components/recip-card/recip-card.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +32,11 @@ import { MatTabsModule } from '@angular/material/tabs';
     LoginComponent,
     UserComponent,
     SignUpComponent,
+    DashboardComponent,
+    NewRecipComponent,
+    RecipListComponent,
+    RecipCardComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,15 +44,21 @@ import { MatTabsModule } from '@angular/material/tabs';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    MatInputModule,
+
+    MatMenuModule,
     MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
+    MatCardModule,
     MatTabsModule,
-    MatSliderModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatSelectModule,
+
+
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

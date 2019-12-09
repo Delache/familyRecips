@@ -1,4 +1,30 @@
-<h1>Bonjour {{ user.firstname }}</h1><br>
-<button (click) = deleteUser(user.id)>Supprimer mon compte</button><br>
-<button (click) = updateUser(user)>Modifier mon compte</button>
-<button (click) = deconnection()>Deconnexion</button>
+
+<button mat-button [matMenuTriggerFor]="allRecips">Tout afficher</button>
+<mat-menu #allRecips="matMenu">
+  <button mat-menu-item >Apéritif</button>
+  <button mat-menu-item >Entrées</button>
+  <button mat-menu-item >Plats</button>
+  <button mat-menu-item>Dessert</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="favorits">Favoris</button>
+<mat-menu #favorits="matMenu">
+  <button mat-menu-item >Apéritif</button>
+  <button mat-menu-item >Entrées</button>
+  <button mat-menu-item >Plats</button>
+  <button mat-menu-item>Dessert</button>
+</mat-menu>
+
+<button (click) = newRecip()>Ajouter une recette</button>
+
+<button mat-icon-button [matMenuTriggerFor]="appMenu" [matMenuTriggerData]="{name: 'Sally'}">
+  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>{{user.firstname}}</button>
+<mat-menu #appMenu="matMenu">
+  <ng-template matMenuContent let-name="name">
+    <button (click) = updateUser(user) mat-menu-item>Modifier mon compte</button>
+    <button (click) = deleteUser(user.id) mat-menu-item>Supprimer mon compte</button>
+    <button (click) = deconnection() mat-menu-item>Se déconnecter</button>
+  </ng-template>
+</mat-menu>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
